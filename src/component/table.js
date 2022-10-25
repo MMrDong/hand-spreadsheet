@@ -5,47 +5,86 @@ import { formulam } from '../core/formula';
 import { formatm } from '../core/format';
 
 import {
-  Draw, DrawBox, thinLineWidth, npx,
+  Draw,
+  DrawBox,
+  thinLineWidth,
+  npx,
 } from '../canvas/draw';
+
+//左上角背景色
+const leftTopBG = '#FF3B3B'
+//索引行，列
+const headerBG = '#3D404C'
+const headerColor = '#ABAFB8'
+const headerLineColor = '#EED33E'
+//网格线色彩
+const gridLineColor = '#34363F'
+
 // gobal var
-const cellPaddingWidth = 5;
-const tableFixedHeaderCleanStyle = { fillStyle: '#f4f5f8' };
+const cellPaddingWidth = 5
+//索引行 列 背景色彩
+const tableFixedHeaderCleanStyle = { fillStyle: headerBG }
+//网格线
 const tableGridStyle = {
-  fillStyle: '#fff',
+  fillStyle: '#EED33E',
   lineWidth: thinLineWidth,
-  strokeStyle: '#e6e6e6',
-};
+  strokeStyle: gridLineColor,
+}
+
 function tableFixedHeaderStyle() {
   return {
     textAlign: 'center',
     textBaseline: 'middle',
     font: `500 ${npx(12)}px Source Sans Pro`,
-    fillStyle: '#585757',
+    fillStyle: headerColor,
     lineWidth: thinLineWidth(),
-    strokeStyle: '#e6e6e6',
-  };
+    strokeStyle: headerLineColor,
+  }
 }
+// gobal var
+// const cellPaddingWidth = 5;
+// const tableFixedHeaderCleanStyle = { fillStyle: '#3D404C' };
+// const tableGridStyle = {
+//   fillStyle: '#fff',
+//   lineWidth: thinLineWidth,
+//   strokeStyle: '#e6e6e6',
+// };
+
+// function tableFixedHeaderStyle() {
+//   return {
+//     textAlign: 'center',
+//     textBaseline: 'middle',
+//     font: `500 ${npx(12)}px Source Sans Pro`,
+//     fillStyle: '#585757',
+//     color: '#ffffff',
+//     lineWidth: thinLineWidth(),
+//     strokeStyle: '#e6e6e6',
+//   };
+// }
 
 function getDrawBox(data, rindex, cindex, yoffset = 0) {
   const {
-    left, top, width, height,
+    left,
+    top,
+    width,
+    height,
   } = data.cellRect(rindex, cindex);
   return new DrawBox(left, top + yoffset, width, height, cellPaddingWidth);
 }
 /*
 function renderCellBorders(bboxes, translateFunc) {
-  const { draw } = this;
-  if (bboxes) {
-    const rset = new Set();
-    // console.log('bboxes:', bboxes);
-    bboxes.forEach(({ ri, ci, box }) => {
-      if (!rset.has(ri)) {
-        rset.add(ri);
-        translateFunc(ri);
-      }
-      draw.strokeBorders(box);
-    });
-  }
+	const { draw } = this;
+	if (bboxes) {
+		const rset = new Set();
+		// console.log('bboxes:', bboxes);
+		bboxes.forEach(({ ri, ci, box }) => {
+			if (!rset.has(ri)) {
+				rset.add(ri);
+				translateFunc(ri);
+			}
+			draw.strokeBorders(box);
+		});
+	}
 }
 */
 
@@ -198,11 +237,14 @@ function renderFixedHeaders(type, viewRange, w, h, tx, ty) {
   if (type === 'all' || type === 'top') draw.fillRect(ntx, 0, sumWidth, h);
 
   const {
-    sri, sci, eri, eci,
+    sri,
+    sci,
+    eri,
+    eci,
   } = data.selector.range;
-  // console.log(data.selectIndexes);
-  // draw text
-  // text font, align...
+    // console.log(data.selectIndexes);
+    // draw text
+    // text font, align...
   draw.attr(tableFixedHeaderStyle());
   // y-header-text
   if (type === 'all' || type === 'left') {
@@ -257,7 +299,12 @@ function renderFixedLeftTopCell(fw, fh) {
 }
 
 function renderContentGrid({
-  sri, sci, eri, eci, w, h,
+  sri,
+  sci,
+  eri,
+  eci,
+  w,
+  h,
 }, fw, fh, tx, ty) {
   const { draw, data } = this;
   const { settings } = data;
