@@ -1,6 +1,6 @@
 {
-  "name": "x-data-spreadsheet",
-  "version": "1.1.8",
+  "name": "hand-data-spreadsheet",
+  "version": "1.0.1",
   "description": "a javascript xpreadsheet",
   "types": "src/index.d.ts",
   "main": "src/index.js",
@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/myliang/x-spreadsheet.git"
+    "url": "git+https://github.com/myliang/x-spreadsheet.git"
   },
   "nyc": {
     "all": true,
@@ -71,5 +71,13 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/x-spreadsheet"
+  },
+  "bugs": {
+    "url": "https://github.com/myliang/x-spreadsheet/issues"
+  },
+  "homepage": "https://github.com/myliang/x-spreadsheet#readme",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
   }
 }
