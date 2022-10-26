@@ -11,25 +11,26 @@ import {
   npx,
 } from '../canvas/draw';
 
-//左上角背景色
-const leftTopBG = '#FF3B3B'
-//索引行，列
-const headerBG = '#3D404C'
-const headerColor = '#ABAFB8'
-const headerLineColor = '#EED33E'
-//网格线色彩
-const gridLineColor = '#34363F'
+// 左上角背景色
+const leftTopBG = '#FF3B3B';
+// 索引行，列
+const headerBG = '#2A2D37';
+const headerColor = '#ABAFB8';
+const headerLineColor = '#EED33E';
+// const headerLineColor = '#32343D';
+// 网格线色彩
+const gridLineColor = '#34363F';
 
 // gobal var
-const cellPaddingWidth = 5
-//索引行 列 背景色彩
-const tableFixedHeaderCleanStyle = { fillStyle: headerBG }
-//网格线
+const cellPaddingWidth = 5;
+// 索引行 列 背景色彩
+const tableFixedHeaderCleanStyle = { fillStyle: headerBG };
+// 网格线
 const tableGridStyle = {
   fillStyle: '#EED33E',
   lineWidth: thinLineWidth,
   strokeStyle: gridLineColor,
-}
+};
 
 function tableFixedHeaderStyle() {
   return {
@@ -39,7 +40,7 @@ function tableFixedHeaderStyle() {
     fillStyle: headerColor,
     lineWidth: thinLineWidth(),
     strokeStyle: headerLineColor,
-  }
+  };
 }
 // gobal var
 // const cellPaddingWidth = 5;
@@ -293,7 +294,7 @@ function renderFixedLeftTopCell(fw, fh) {
   const { draw } = this;
   draw.save();
   // left-top-cell
-  draw.attr({ fillStyle: '#f4f5f8' })
+  draw.attr({ fillStyle: '#2A2D37' })
     .fillRect(0, 0, fw, fh);
   draw.restore();
 }
