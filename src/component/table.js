@@ -16,8 +16,8 @@ const leftTopBG = '#FF3B3B';
 // 索引行，列
 const headerBG = '#2A2D37';
 const headerColor = '#ABAFB8';
-const headerLineColor = '#EED33E';
-// const headerLineColor = '#32343D';
+// const headerLineColor = '#EED33E';
+const headerLineColor = '#32343D';
 // 网格线色彩
 const gridLineColor = '#34363F';
 
